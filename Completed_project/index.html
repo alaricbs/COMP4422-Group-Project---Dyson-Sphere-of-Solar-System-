@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Underwater Coral Reef - Animated | COMP4422</title>
+  <style>
+    body { margin:0; overflow:hidden; background:#000; font-family: Arial; }
+    canvas { display:block; }
+    #info { position: absolute; top: 10px; left: 10px; color: #a0f0ff; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 8px; }
+    #animations { position: absolute; top: 10px; right: 10px; color: #a0f0ff; background: rgba(0,0,0,0.4); padding: 10px; border-radius: 8px; }
+    #animations h3 { margin-top: 0; color: #ffff80; }
+    #animations ul { margin: 0; padding-left: 20px; }
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      background: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="glcanvas"></canvas>
+  <div id="info">
+    <strong>Underwater Coral Reef</strong><br>
+    🖱️ Mouse drag = orbit • Scroll = zoom<br>
+    ⌨️ Space = pause • R = reset • O/C = open/close chest
+  </div>
+  <div id="animations">
+    <h3>Active Animations:</h3>
+    <ul>
+      <li>🐟 Fish: Swimming + Realistic Turning</li>
+      <li>⭐ Starfish: Breathing</li>
+      <li>🌿 Seaweed: Swaying motion (4x)</li>
+      <li>💎 Chest: Mystery pulsing</li>
+      <li>📦 Chest Lid: Click to interact!</li>
+      <li>💨 Bubbles: Particle system</li>
+    </ul>
+    <h3 style="margin-top: 15px;">Story Events:</h3>
+    <ul style="font-size: 0.9em;">
+      <li>5s: Fish arrives</li>
+      <li>10s: Chest glows</li>
+      <li>15s: Seaweed responds</li>
+      <li>20s: Starfish notices</li>
+      <li>25s: Final reveal</li>
+    </ul>
+  </div>
+  <div id="controls">
+    <div style="margin-bottom: 10px;">🖱️ Click chest to open</div>
+    <button id="closeBtn">Close Chest</button>
+    <div style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;">
+      <div style="margin-bottom: 5px;">⏱️ Time Controls:</div>
+      <button id="pauseBtn">Pause</button>
+      <button id="playBtn" style="display:none;">Play</button>
+      <button id="resetBtn">Reset</button>
+      <div style="margin-top: 8px;">
+        <label style="display:block; margin-bottom: 4px;">Speed: <span id="speedValue">1.0x</span></label>
+        <input type="range" id="speedSlider" min="0" max="200" value="100" style="width: 150px;">
+      </div>
+      <div style="margin-top: 8px;">
+        <button id="rewindBtn">⏪ Rewind</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
